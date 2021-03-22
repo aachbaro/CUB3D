@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 12:15:32 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/11 15:35:54 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/22 13:44:15 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	get_res(char **line, t_minfo *info)
 		info->res_x = ft_atoi(line[1]);
 		info->res_y = ft_atoi(line[2]);
 	}
-	else 
+	else
 		return (-1);
 	return (1);
 }
@@ -77,4 +77,3 @@ int	get_west(char **line, t_minfo *info)
 		return (-1);
 	return (1);
 }
-

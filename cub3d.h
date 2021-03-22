@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 12:10:03 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/19 15:03:24 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/22 15:35:12 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <stdio.h>
+
+typedef struct		s_inipos
+{
+	int				pos_x;
+	int				pos_y;
+	char			dir;
+}					t_inipos;
 
 typedef struct		s_minfo
 {
@@ -38,6 +45,7 @@ typedef struct		s_minfo
 	char			*tex_e;
 	char			*sprite;
 	char			**map;
+	t_inipos		pos;
 }					t_minfo;
 
 void	print_map(t_minfo *minfo);
@@ -45,6 +53,8 @@ char	**get_indic_tab();
 int		del_mapinfo(t_minfo *info);
 int		check_mapinfo(t_minfo info);
 int		check_comma(char *str);
+int		check_maptab(t_minfo *info);
+int		check_mspaces(char **tab, int x, int y);
 int		del_strtab(char **tab);
 int		get_parcer_tab(int (***f)(char **, t_minfo *));
 int		texture_parcing(char *line, t_minfo *map);

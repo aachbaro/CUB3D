@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 13:49:25 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/19 14:09:52 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/22 16:59:27 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	get_sprite(char **line, t_minfo *info)
 	return (1);
 }
 
-int	check_RGB(char **rgb)
+int	check_rgb(char **rgb)
 {
 	int	i;
 	int	j;
@@ -66,17 +66,16 @@ int	check_RGB(char **rgb)
 
 int	get_floor(char **line, t_minfo *info)
 {
-	int		i;
-	int		j;
 	char	**splited;
 
-	i = 0;
-	j = 0;
 	if (tab_len(line) != 2 || check_comma(line[1]) == -1)
 		return (-1);
 	splited = ft_split(line[1], ',');
-	if (check_RGB(splited) == -1)
+	if (check_rgb(splited) == -1)
+	{
+		del_strtab(splited);
 		return (-1);
+	}
 	if (info->floor_R == -1 && info->floor_G == -1 && info->floor_B == -1)
 	{
 		info->floor_R = ft_atoi(splited[0]);
@@ -94,21 +93,16 @@ int	get_floor(char **line, t_minfo *info)
 
 int	get_ceil(char **line, t_minfo *info)
 {
-	int		i;
-	int		j;
 	char	**splited;
 
-	i = 0;
-	j = 0;
 	if (tab_len(line) != 2 || check_comma(line[1]) == -1)
-	
+		return (-1);
+	splited = ft_split(line[1], ',');
+	if (check_rgb(splited) == -1)
 	{
-		printf("\n%d\n", check_comma(line[1]));
+		del_strtab(splited);
 		return (-1);
 	}
-	splited = ft_split(line[1], ',');
-	if (check_RGB(splited) == -1)
-		return (-1);
 	if (info->ceil_R == -1 && info->ceil_G == -1 && info->ceil_B == -1)
 	{
 		info->ceil_R = ft_atoi(splited[0]);

@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 15:26:42 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/19 15:03:13 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/22 15:37:52 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int		get_map_size(int *fd, char *line, t_minfo *info)
 	}
 	if (!is_map_line(line))
 	{
+		free(line);
 		while (get_next_line(*fd, &line))
 		{
 			if (line[0] != 0)
@@ -33,6 +34,7 @@ int		get_map_size(int *fd, char *line, t_minfo *info)
 			free(line);
 		}
 	}
+	free(line);
 	info->map = malloc(sizeof(char *) * info->map_y + 1);
 	if (!info->map)
 		return (-1);
@@ -46,10 +48,7 @@ int		fill_mapline(char *line, t_minfo *info, int y)
 	i = 0;
 	info->map[y] = malloc(sizeof(char) * info->map_x);
 	if (!info->map[y])
-	{
-		printf("\nWTF\n");
 		return (-1);
-	}
 	while (line[i])
 	{
 		info->map[y][i] = line[i];
@@ -70,31 +69,79 @@ int		get_map(int *fd, char **line, t_minfo *info, char *file)
 	int				error;
 
 	y = 0;
-	error = 0;
 	error = get_map_size(fd, *line, info);
-	printf("\nmap-x = %d map-y = %d\n", info->map_x, info->map_y);
 	if (error == -1)
 		return (-1);
 	close(*fd);
 	*fd = open(file, O_RDONLY);
 	if (*fd == -1)
 		return (-1);
-	while (get_next_line(*fd, line) && !is_map_line(*line))
-		free(*line);
-	error = fill_mapline(*line, info, y);
-	y++;
-	free(*line);
-	while (get_next_line(*fd, line) && is_map_line(*line))
+	while (get_next_line(*fd, line))
 	{
-		error = fill_mapline(*line, info, y);
+		if (is_map_line(*line))
+		{
+			error = fill_mapline(*line, info, y);
+			if (error == -1)
+				return (-1);
+			y++;
+		}
 		free(*line);
-		if (error == -1)
-			return (-1);
-		printf("info->map[y] = |%s|, y = %d\n", info->map[y], y);
-		y++;
 	}
 	info->map[y] = NULL;
-	print_map(info);
+	free(*line);
 	return (error);
 }
 
+int		check_maptab(t_minfo *info)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	while (info->map[j])
+	{
+		i = 0;
+		while (info->map[j][i])
+		{
+			if (info->map[j][i] == ' ' && check_mspaces(info->map, i, j) == -1)
+				return (-1);
+			if (get_pos("NESW", info->map[j][i]) != -1 && !info->pos.dir)
+			{
+				info->pos.pos_x = i;
+				info->pos.pos_y = j;
+				info->pos.dir = info->map[j][i];
+			}
+			else if (get_pos("NESW", info->map[j][i]) != -1 && info->pos.dir)
+				return (-1);
+			i++;
+		}
+		j++;
+	}
+	return (1);
+}
+
+int		check_mspaces(char **tab, int x, int y)
+{
+	int	l;
+	int	h;
+
+	l = ft_strlen(tab[0]) - 1;
+	h = tab_len(tab) - 1;
+	if (y > 0 && x > 0 && get_pos(" 1", tab[y - 1][x - 1]) == -1)
+		return (-1);
+	if (y > 0 && get_pos(" 1", tab[y - 1][x]) == -1)
+		return (-1);
+	if (y > 0 && x < l && get_pos(" 1", tab[y - 1][x + 1]) == -1)
+		return (-1);
+	if (x > 0 && get_pos(" 1", tab[y][x - 1]) == -1)
+		return (-1);
+	if (x < l && get_pos(" 1", tab[y][x + 1]) == -1)
+		return (-1);
+	if (y < h && x > 0 && get_pos(" 1", tab[y + 1][x - 1]) == -1)
+		return (-1);
+	if (y < h && get_pos(" 1", tab[y + 1][x]) == -1)
+		return (-1);
+	if (y < h && x < l && get_pos(" 1", tab[y + 1][x + 1]) == -1)
+		return (-1);
+	return (1);
+}

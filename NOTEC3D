@@ -1,4 +1,5 @@
-- premiere ligne manquante dans la map
-- Le tableau de map ne veut pas se free
-- Fonction qui check si la map est valide
-- Norme
+- Ne fait pas d'erreur si ya un truc qui va pas dans la derniere ligne
+- Mettre des messages d'erreurs specifiques
+- Mettre les coordonnees du joueur en float
+- Finir d'installer la vm
+

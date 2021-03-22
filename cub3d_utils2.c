@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 13:41:17 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/19 14:39:49 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/22 16:34:36 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	del_strtab(char **tab)
 	i = 0;
 	while (tab[i])
 	{
-//		printf("\n%s\n", tab[i]);
 		if (tab[i])
 			free(tab[i]);
 		i++;
@@ -52,15 +51,17 @@ int	check_mapinfo(t_minfo info)
 		return (-1);
 	if (info.ceil_R == -1 || info.ceil_G == -1 || info.ceil_B == -1)
 		return (-1);
-	if (!info.tex_n || !info.tex_s || !info.tex_w || !info.tex_e || !info.sprite)
+	if (!info.tex_n || !info.tex_s || !info.tex_w || !info.tex_e)
+		return (-1);
+	if (!info.sprite)
 		return (-1);
 	return (1);
 }
 
 int	check_comma(char *str)
 {
-	int	i;
-	int	comma;
+	size_t	i;
+	int		comma;
 
 	i = 0;
 	comma = 0;

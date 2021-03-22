@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 12:08:58 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/16 14:44:21 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/22 15:35:35 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		is_map_line(char *line)
 	return (1);
 }
 
-int	get_pos(char *str, char c)
+int		get_pos(char *str, char c)
 {
 	int	i;
 
@@ -83,4 +83,7 @@ void	set_minfo(t_minfo *minfo)
 	minfo->tex_w = NULL;
 	minfo->tex_e = NULL;
 	minfo->sprite = NULL;
+	minfo->pos.pos_x = -1;
+	minfo->pos.pos_y = -1;
+	minfo->pos.dir = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 14:10:42 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/19 15:03:35 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/22 16:59:30 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int		main(int ac, char **av)
 	printf("Nord = %s\nSout = %s\n", minfo.tex_n, minfo.tex_s);
 	printf("West = %s\nEast = %s\n", minfo.tex_w, minfo.tex_e);
 	printf("Spri = %s\n", minfo.sprite);
+	printf("Ipos = %dx, %dy, %c",minfo.pos.pos_x,minfo.pos.pos_y,minfo.pos.dir);
 	print_map(&minfo);
 	del_strtab(minfo.map);
 	del_mapinfo(&minfo);

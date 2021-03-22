@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 14:19:27 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/19 14:42:54 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/22 16:59:29 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 char	**get_indic_tab(void)
 {
 	char	**indic;
+
 	indic = malloc(sizeof(char *) * 9);
 	if (!indic)
 		return (0);
@@ -83,10 +84,14 @@ int		get_info(int *fd, t_minfo *map, char *file)
 		if (error == -1)
 			return (-1);
 	}
-	if (check_mapinfo(*map) == -1)
-		return (-1);
+	if (is_map_line(line))
+	{
+		map->map_x = ft_strlen(line);
+		map->map_y++;
+		free(line);
+	}
 	error = get_map(fd, &line, map, file);
-	if (error == -1)
+	if (check_mapinfo(*map) == -1 || error == -1 || check_maptab(map) == -1)
 		return (-1);
 	return (0);
 }
