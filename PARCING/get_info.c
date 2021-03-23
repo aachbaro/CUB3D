@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 14:19:27 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/22 16:59:29 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/23 15:49:00 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	**get_indic_tab(void)
 
 	indic = malloc(sizeof(char *) * 9);
 	if (!indic)
-		return (0);
+		return (NULL);
 	indic[0] = "R";
 	indic[1] = "NO";
 	indic[2] = "SO";
@@ -35,7 +35,7 @@ int		get_parcer_tab(int (***f)(char **, t_minfo *))
 {
 	(*f) = malloc(sizeof(*f) * 8);
 	if (!(*f))
-		return (0);
+		return (-1);
 	(*f)[0] = &get_res;
 	(*f)[1] = &get_north;
 	(*f)[2] = &get_south;
@@ -59,11 +59,15 @@ int		texture_parcing(char *line, t_minfo *map)
 	ret = 1;
 	splited = ft_split(line, ' ');
 	get_parcer_tab(&f);
+	if (!f)
+		return (error_spec(4));
 	indic = get_indic_tab();
+	if (!indic)
+		return (error_spec(4));
 	if (get_pos_tab(splited[0], indic) != -1)
 		ret = (f)[get_pos_tab(splited[0], indic)](splited, map);
 	else
-		ret = -1;
+		ret = error_spec(0);
 	free(indic);
 	del_strtab(splited);
 	free(f);

@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 13:41:17 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/22 16:34:36 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/23 15:44:55 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	del_mapinfo(t_minfo *info)
 {
-	ft_putstr_fd("\ndeleting minfo..\n", 1);
 	if (info->tex_n)
 		free(info->tex_n);
 	if (info->tex_s)
@@ -46,15 +45,15 @@ int	del_strtab(char **tab)
 int	check_mapinfo(t_minfo info)
 {
 	if (info.res_x == -1 || info.res_y == -1)
-		return (-1);
+		return (error_spec(8));
 	if (info.floor_R == -1 || info.floor_G == -1 || info.floor_B == -1)
-		return (-1);
+		return (error_spec(8));
 	if (info.ceil_R == -1 || info.ceil_G == -1 || info.ceil_B == -1)
-		return (-1);
+		return (error_spec(8));
 	if (!info.tex_n || !info.tex_s || !info.tex_w || !info.tex_e)
-		return (-1);
+		return (error_spec(8));
 	if (!info.sprite)
-		return (-1);
+		return (error_spec(8));
 	return (1);
 }
 

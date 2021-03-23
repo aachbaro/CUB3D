@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 14:10:42 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/22 16:59:30 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/23 15:48:55 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int		main(int ac, char **av)
 		error = get_info(&fd, &minfo, av[ac - 1]);
 	if (error == -1 || fd == -1)
 	{
-		ft_putstr_fd("\nERROR\n", 1);
 		del_mapinfo(&minfo);
 		printf("\nTest de LEAKS\n");
 		system("leaks a.out | grep leaked\n");

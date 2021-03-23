@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 12:10:03 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/22 15:35:12 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/23 15:26:10 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int		check_mapinfo(t_minfo info);
 int		check_comma(char *str);
 int		check_maptab(t_minfo *info);
 int		check_mspaces(char **tab, int x, int y);
+int		check_border(char **tab, int x, int y);
 int		del_strtab(char **tab);
 int		get_parcer_tab(int (***f)(char **, t_minfo *));
 int		texture_parcing(char *line, t_minfo *map);
@@ -75,5 +76,6 @@ int		tab_len(char **tab);
 int		is_map_line(char *line);
 void	set_minfo(t_minfo *minfo);
 int		get_pos(char *str, char c);
+int		error_spec(int n);
 
 #endif
