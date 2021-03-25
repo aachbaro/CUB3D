@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 14:10:42 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/23 15:48:55 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/25 14:48:48 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,17 @@ void	print_map(t_minfo *minfo)
 		printf("%-5d|%s|\n", i, minfo->map[i]);
 		i++;
 	}
+}
+
+void	print_info(t_minfo minfo)
+{
+	printf("Reso = %lld, %lld\n", minfo.res_x, minfo.res_y);
+	printf("Floo = %d, %d, %d\n", minfo.floor_r, minfo.floor_g, minfo.floor_b);
+	printf("Ceil = %d, %d, %d\n", minfo.ceil_r, minfo.ceil_g, minfo.ceil_b);
+	printf("Nord = %s\nSout = %s\n", minfo.tex_n, minfo.tex_s);
+	printf("West = %s\nEast = %s\n", minfo.tex_w, minfo.tex_e);
+	printf("Spri = %s\n", minfo.sprite);
+	printf("Ipos = %dx, %dy, %c",minfo.pos.pos_x,minfo.pos.pos_y,minfo.pos.dir);
 }
 
 int		main(int ac, char **av)
@@ -45,14 +56,7 @@ int		main(int ac, char **av)
 		system("leaks a.out | grep leaked\n");
 		return (0);
 	}
-	printf("Reso = %d, %d\n", minfo.res_x, minfo.res_y);
-	printf("Floo = %d, %d, %d\n", minfo.floor_R, minfo.floor_G, minfo.floor_B);
-	printf("Ceil = %d, %d, %d\n", minfo.ceil_R, minfo.ceil_G, minfo.ceil_B);
-	printf("Nord = %s\nSout = %s\n", minfo.tex_n, minfo.tex_s);
-	printf("West = %s\nEast = %s\n", minfo.tex_w, minfo.tex_e);
-	printf("Spri = %s\n", minfo.sprite);
-	printf("Ipos = %dx, %dy, %c",minfo.pos.pos_x,minfo.pos.pos_y,minfo.pos.dir);
-	print_map(&minfo);
+	window_setting(minfo);
 	del_strtab(minfo.map);
 	del_mapinfo(&minfo);
 	close(fd);

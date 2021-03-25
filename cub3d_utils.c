@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 12:08:58 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/22 15:35:35 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/24 12:00:28 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ void	set_minfo(t_minfo *minfo)
 {
 	minfo->res_x = -1;
 	minfo->res_y = -1;
-	minfo->floor_R = -1;
-	minfo->floor_G = -1;
-	minfo->floor_B = -1;
-	minfo->ceil_R = -1;
-	minfo->ceil_G = -1;
-	minfo->ceil_B = -1;
+	minfo->floor_r = -1;
+	minfo->floor_g = -1;
+	minfo->floor_b = -1;
+	minfo->ceil_r = -1;
+	minfo->ceil_g = -1;
+	minfo->ceil_b = -1;
 	minfo->map_x = 0;
 	minfo->map_y = 0;
 	minfo->tex_n = NULL;

@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 14:19:27 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/23 15:49:00 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/24 13:06:33 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int		get_info(int *fd, t_minfo *map, char *file)
 		free(line);
 	}
 	error = get_map(fd, &line, map, file);
-	if (check_mapinfo(*map) == -1 || error == -1 || check_maptab(map) == -1)
+	if (check_maptab(map) == -1 || error == -1 || check_mapinfo(*map) == -1)
 		return (-1);
 	return (0);
 }

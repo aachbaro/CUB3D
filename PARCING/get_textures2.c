@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 13:49:25 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/23 15:23:19 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/24 11:47:34 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,11 @@ int	get_floor(char **line, t_minfo *info)
 		del_strtab(splited);
 		return (error_spec(2));
 	}
-	if (info->floor_R == -1 && info->floor_G == -1 && info->floor_B == -1)
+	if (info->floor_r == -1 && info->floor_g == -1 && info->floor_b == -1)
 	{
-		info->floor_R = ft_atoi(splited[0]);
-		info->floor_G = ft_atoi(splited[1]);
-		info->floor_B = ft_atoi(splited[2]);
+		info->floor_r = ft_atoi(splited[0]);
+		info->floor_g = ft_atoi(splited[1]);
+		info->floor_b = ft_atoi(splited[2]);
 		del_strtab(splited);
 	}
 	else
@@ -103,11 +103,11 @@ int	get_ceil(char **line, t_minfo *info)
 		del_strtab(splited);
 		return (error_spec(2));
 	}
-	if (info->ceil_R == -1 && info->ceil_G == -1 && info->ceil_B == -1)
+	if (info->ceil_r == -1 && info->ceil_g == -1 && info->ceil_b == -1)
 	{
-		info->ceil_R = ft_atoi(splited[0]);
-		info->ceil_G = ft_atoi(splited[1]);
-		info->ceil_B = ft_atoi(splited[2]);
+		info->ceil_r = ft_atoi(splited[0]);
+		info->ceil_g = ft_atoi(splited[1]);
+		info->ceil_b = ft_atoi(splited[2]);
 		del_strtab(splited);
 	}
 	else
