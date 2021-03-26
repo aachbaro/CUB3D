@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 12:10:03 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/25 14:49:34 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/26 14:00:41 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,15 @@ typedef struct		s_minfo
 	t_inipos		pos;
 }					t_minfo;
 
+typedef struct		s_data
+{
+  void				*img;
+  char				*addr;
+  int				bpp;
+  int				line_length;
+  int				endian;
+}					t_data;
+
 long long			ft_ultratoi(const char *str);
 void				print_map(t_minfo *minfo);
 char				**get_indic_tab();
@@ -83,5 +92,6 @@ void				set_minfo(t_minfo *minfo);
 int					get_pos(char *str, char c);
 int					error_spec(int n);
 int					window_setting(t_minfo info);
+void				put_pixel(t_data *data, int x, int y, int color);
 
 #endif
