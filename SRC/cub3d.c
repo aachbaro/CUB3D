@@ -6,12 +6,11 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 14:10:42 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/29 16:54:44 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/30 14:55:47 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include <stdio.h>
+#include "../cub3d.h"
 
 void	print_map(t_minfo *minfo)
 {
@@ -29,8 +28,8 @@ void	print_map(t_minfo *minfo)
 void	print_info(t_minfo minfo)
 {
 	printf("Reso = %lld, %lld\n", minfo.res_x, minfo.res_y);
-	printf("Floo = %d, %d, %d\n", minfo.floor_r, minfo.floor_g, minfo.floor_b);
-	printf("Ceil = %d, %d, %d\n", minfo.ceil_r, minfo.ceil_g, minfo.ceil_b);
+	printf("Floo = %d\n", minfo.floor_color);
+	printf("Ceil = %d\n", minfo.ceil_color);
 	printf("Nord = %s\nSout = %s\n", minfo.tex_n, minfo.tex_s);
 	printf("West = %s\nEast = %s\n", minfo.tex_w, minfo.tex_e);
 	printf("Spri = %s\n", minfo.sprite);
@@ -53,14 +52,16 @@ int		main(int ac, char **av)
 	{
 		del_mapinfo(&minfo);
 		printf("\nTest de LEAKS\n");
-		system("leaks a.out | grep leaked\n");
+		system("leaks cub3D | grep leaked\n");
 		return (0);
 	}
-	window_setting(minfo);
+	print_info(minfo);
+	print_map(&minfo);
+//	window_setting(minfo);
 	del_strtab(minfo.map);
 	del_mapinfo(&minfo);
 	close(fd);
 	printf("\nTest de LEAKS\n");
-	system("leaks a.out | grep leaked\n");
+	system("leaks cub3D | grep leaked\n");
 	return (0);
 }

@@ -6,15 +6,14 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:18:08 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/30 14:18:01 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/30 14:52:59 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "libft.h"
-# include "get_next_line.h"
+# include "libft/libft.h"
 # include <mlx.h>
 # include <sys/types.h>
 # include <sys/stat.h>
@@ -64,6 +63,7 @@ typedef struct		s_mlxdt
 
 /* PARCING */
 int					get_info(int *fd, t_minfo *map, char *file);
+int					texture_parcing(char *line, t_minfo *map);
 int					check_border(char **tab, int x, int y);
 long long			ft_ultratoi(const char *str);
 int					check_res(char **line);
@@ -77,7 +77,6 @@ int					check_rgb(char **rgb);
 int					rgb_trad(int r, int g, int b);
 int					get_north(char **line, t_minfo *info);
 int					get_res(char **line, t_minfo *info);
-int					get_north(char **line, t_minfo *info)
 int					get_south(char **line, t_minfo *info);
 int					get_west(char **line, t_minfo *info);
 int					get_east(char **line, t_minfo *info);
@@ -98,3 +97,5 @@ int					get_pos(char *str, char c);
 void				set_minfo(t_minfo *minfo);
 int					del_strtab(char **tab);
 int					del_mapinfo(t_minfo *info);
+
+#endif

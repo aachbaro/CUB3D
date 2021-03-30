@@ -1,30 +1,30 @@
 NAME = cub3D
-SRC = 
-SAVE = save.bmp
+SRC = SRC/cub3d.c \
+	  SRC/cub3d_utils.c \
+	  SRC/cub3d_utils2.c \
+	  SRC/PARCING/get_info.c \
+	  SRC/PARCING/get_map.c \
+	  SRC/PARCING/get_texture.c \
+	  SRC/PARCING/get_texture2.c \
+	  SRC/PARCING/parcing_utils.c \
+	  SRC/PARCING/parcing_utils2.c \
+	  SRC/PARCING/parcing_utils3.c \
+#SAVE = save.bmp
 LIBFT = -L./libft -lft
-MLX = -L./mlx -lmlx -lXext -lX11 -lm
-INC = -I./inc/cub3d.h
-CC = clang
+MLX = -I/usr/local/include -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 RM = rm -rf
 OBJ = $(SRC:.c=.o)
 $(NAME): $(OBJ)
-	@rm -rf cub3D
-	@echo “\033[33m[Last version of $@ was removed]\033[0m”
 	@$(MAKE) -C ./libft
-	@$(MAKE) -C ./mlx
-	@echo “\033[33m[New version of $@ is compiling...]\033[0m”
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(INC) $(LIBFT) $(MLX)
-	@echo “\033[1;32m[Done !]”
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(MLX)
 all: $(NAME)
 clean:
 	@${RM} ${OBJ}
-	@echo “\033[0;31m[All .o files were removed]\033[0m”
 fclean: clean
 	@$(MAKE) fclean -C ./libft
 	@${RM} ${SAVE}
-	@echo “\033[0;31m[$(SAVE) was removed]\033[0m”
 	@${RM} ${NAME}
-	@echo “\033[1;31m[$(NAME) was removed]\033[0m”
 re: fclean all
 .PHONY: all clean fclean re
