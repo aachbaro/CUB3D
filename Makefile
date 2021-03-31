@@ -9,6 +9,11 @@ SRC = SRC/cub3d.c \
 	  SRC/PARCING/parcing_utils.c \
 	  SRC/PARCING/parcing_utils2.c \
 	  SRC/PARCING/parcing_utils3.c \
+	  SRC/RAYCASTING/window_utils.c \
+	  SRC/RAYCASTING/window.c \
+	  SRC/RAYCASTING/handle.c \
+	  SRC/RAYCASTING/renders.c \
+
 #SAVE = save.bmp
 LIBFT = -L./libft -lft
 MLX = -I/usr/local/include -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit

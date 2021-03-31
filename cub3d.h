@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:18:08 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/30 14:52:59 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/31 13:46:20 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct		s_mlxdt
 	void			*m_ptr;
 	void			*m_win;
 	t_img			img;
+	t_minfo			*info;
 }					t_mlxdt;
 
 /* PARCING */
@@ -97,5 +98,13 @@ int					get_pos(char *str, char c);
 void				set_minfo(t_minfo *minfo);
 int					del_strtab(char **tab);
 int					del_mapinfo(t_minfo *info);
+
+/* RAYCASTING */
+void				img_pix_put(t_img *img, int x, int y, int color);
+int					handle_no_event(void *data);
+int					handle_input(int keysym, t_mlxdt *data);
+int					render(t_mlxdt *data);
+int					window(t_minfo *info);
+void				render_minimap(t_mlxdt *data);
 
 #endif

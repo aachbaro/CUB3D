@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 14:10:42 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/30 14:55:47 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/03/31 13:20:32 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int		main(int ac, char **av)
 	}
 	print_info(minfo);
 	print_map(&minfo);
-//	window_setting(minfo);
+	window(&minfo);
 	del_strtab(minfo.map);
 	del_mapinfo(&minfo);
 	close(fd);
