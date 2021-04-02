@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:18:08 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/31 13:46:20 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/04/02 16:42:56 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <stdio.h>
+# include <math.h>
 # define K_ESCAPE 53
 
 typedef struct		s_inipos
@@ -54,12 +55,41 @@ typedef struct		s_img
   int				endian;
 }					t_img;
 
+typedef struct		s_ray
+{
+	double			pos_x;
+	double			pos_y;
+	double			dir_x;
+	double			dir_y;
+	double			plane_x;
+	double			plane_y;
+	double			raydir_x;
+	double			raydir_y;
+	double			camera_x;
+	int				map_x;
+	int				map_y;
+	double			sidedist_x;
+	double			sidedist_y;
+	double			deltadist_x;
+	double			deltadist_y;
+	int				step_x;
+	int				step_y;
+	int				hit;
+	int				side;
+	double			perpwalldist;
+	int				lineh;
+	int				drawstart;
+	int				drawend;
+	int				x;
+}					t_ray;
+
 typedef struct		s_mlxdt
 {
 	void			*m_ptr;
 	void			*m_win;
 	t_img			img;
 	t_minfo			*info;
+	t_ray			*ray;
 }					t_mlxdt;
 
 /* PARCING */
@@ -106,5 +136,11 @@ int					handle_input(int keysym, t_mlxdt *data);
 int					render(t_mlxdt *data);
 int					window(t_minfo *info);
 void				render_minimap(t_mlxdt *data);
+void				render_raycast(t_mlxdt *data);
+void				init_step(t_ray *ray);
+void				inc_sidedist(t_ray *ray, char **map);
+void				get_perpwalldist(t_ray *ray);
+void				draw_col(t_mlxdt data);
+void				ray_init(t_ray *ray, t_minfo info);
 
 #endif

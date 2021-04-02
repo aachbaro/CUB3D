@@ -13,6 +13,7 @@ SRC = SRC/cub3d.c \
 	  SRC/RAYCASTING/window.c \
 	  SRC/RAYCASTING/handle.c \
 	  SRC/RAYCASTING/renders.c \
+	  SRC/RAYCASTING/renders2.c \
 
 #SAVE = save.bmp
 LIBFT = -L./libft -lft
