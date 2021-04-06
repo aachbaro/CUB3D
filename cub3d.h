@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:18:08 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/04/02 16:42:56 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/04/06 17:20:16 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@
 # include <stdio.h>
 # include <math.h>
 # define K_ESCAPE 53
+# define K_LEFT 123
+# define K_RIGHT 124
+# define K_W 13
+# define K_S 1
+# define K_A 0
+# define K_D 2
 
 typedef struct		s_inipos
 {
@@ -89,7 +95,7 @@ typedef struct		s_mlxdt
 	void			*m_win;
 	t_img			img;
 	t_minfo			*info;
-	t_ray			*ray;
+	t_ray			ray;
 }					t_mlxdt;
 
 /* PARCING */
@@ -142,5 +148,6 @@ void				inc_sidedist(t_ray *ray, char **map);
 void				get_perpwalldist(t_ray *ray);
 void				draw_col(t_mlxdt data);
 void				ray_init(t_ray *ray, t_minfo info);
+void				init_delta(t_ray *ray);
 
 #endif

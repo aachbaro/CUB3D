@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:43:33 by aachbaro          #+#    #+#             */
-/*   Updated: 2021/03/30 13:46:58 by aachbaro         ###   ########.fr       */
+/*   Updated: 2021/04/05 15:09:13 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		fill_mapline(char *line, t_minfo *info, int y)
 	unsigned int	i;
 
 	i = 0;
-	info->map[y] = malloc(sizeof(char) * info->map_x);
+	info->map[y] = malloc(sizeof(char) * info->map_x + 1);
 	if (!info->map[y])
 		return (error_spec(4));
 	while (line[i])

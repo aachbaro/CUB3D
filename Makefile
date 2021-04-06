@@ -14,12 +14,13 @@ SRC = SRC/cub3d.c \
 	  SRC/RAYCASTING/handle.c \
 	  SRC/RAYCASTING/renders.c \
 	  SRC/RAYCASTING/renders2.c \
+	  SRC/RAYCASTING/renders3.c \
 
 #SAVE = save.bmp
 LIBFT = -L./libft -lft
 MLX = -I/usr/local/include -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize=address
 RM = rm -rf
 OBJ = $(SRC:.c=.o)
 $(NAME): $(OBJ)
