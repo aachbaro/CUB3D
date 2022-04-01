@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:21:05 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/03/31 17:35:15 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/01 14:34:29 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	init_all(t_data *data)
 {
 	data->m_ptr = NULL;
 	data->m_win = NULL;
-	data->info.win_w = 1000;
-	data->info.win_h = 600;
+	data->info.win_w = 1920 * 4 / 5;
+	data->info.win_h = 1080 * 4 / 5;
 	data->info.floor_color = -1;
 	data->info.ceil_color = -1;
 	data->info.w_map = 0;

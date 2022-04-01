@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 14:56:24 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/03/31 18:25:17 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/01 14:29:26 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,25 @@ int		set_pos(t_data *data, int y, int x);
 int		check_border(char **tab, int x, int y);
 int		check_mspaces(char **tab, int x, int y);
 int		get_pos(char *str, char c);
+int		window(t_data *data);
+void		raycast_init(t_data *data);
+void		init_dirplane(t_data *data);
+void		init_move(t_data *data);
+void		raycasting(t_data *data);
+void		init_raycasting(t_data *data);
+void		init_delta(t_ray *ray);
+void		init_sidedist(t_ray *ray);
+void		inc_sidedist(t_ray *ray, char **map);
+void		get_perpwalldist(t_ray *ray, int res_y);
+void		draw_col(t_data data);
+int		key_press(int keysym, t_data *data);
+int		key_release(int keysym, t_data *data);
+void		move_forward_back(t_ray *ray, char **map, t_data *data);
+void		move_left_right(t_ray *ray, char **map, t_data *data);
+void		rotate_right_left(t_data *data, t_ray *ray);
+void		rotate_left(t_data *data, t_ray *ray, double olddir_x);
+void		img_pix_put(t_img *img, int x, int y, int color);
+
 
 
 #endif

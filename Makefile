@@ -9,6 +9,13 @@ SRC = srcs/main.c \
       srcs/parsing/get_info.c \
       srcs/parsing/get_textures.c \
       srcs/parsing/get_map.c \
+      srcs/raycasting/raycasting.c \
+      srcs/raycasting/init.c \
+      srcs/raycasting/window.c \
+      srcs/raycasting/raycasting2.c \
+      srcs/raycasting/key.c \
+      srcs/raycasting/utils.c \
+      srcs/raycasting/move.c \
 
 
 

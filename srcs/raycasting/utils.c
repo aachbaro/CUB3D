@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/30 15:11:08 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/01 14:31:12 by aachbaro         ###   ########.fr       */
+/*   Created: 2022/04/01 12:12:04 by aachbaro          #+#    #+#             */
+/*   Updated: 2022/04/01 12:12:45 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../../cub3d.h"
 
-int	main(int ac, char **av)
+void	img_pix_put(t_img *img, int x, int y, int color)
 {
-	t_data	data;
+	char	*pixel;
+	int		i;
 
-	init_all(&data);
-	if (!open_file(ac, av, &data))
-		if (!get_info(&data))
-			window(&data);
-	free_all(&data);
-	ft_error(&data);
-	return (0);
+	i = img->bpp - 8;
+	pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
+	while (i >= 0)
+	{
+		if (img->endian != 0)
+			*pixel++ = (color >> i) & 0xFF;
+		else
+			*pixel++ = (color >> (img->bpp - 8 - i)) & 0xFF;
+		i -= 8;
+	}
 }

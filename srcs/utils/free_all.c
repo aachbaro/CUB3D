@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:58:08 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/03/31 18:37:00 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/01 11:31:06 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,6 @@ void	ft_error2(t_data *data)
 	else if (data->error == 13)
 		ft_putstr_fd("Error\nInitial position not found\n", 1);
 	else if (data->error == 14)
-		ft_putstr_fd("Error\nmap not found\n", 1);
+		ft_putstr_fd("Error\nMap not found\n", 1);
 
 }
