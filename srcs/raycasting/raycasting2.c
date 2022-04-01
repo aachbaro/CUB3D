@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 13:43:53 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/01 14:30:08 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/01 15:21:35 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	get_perpwalldist(t_ray *ray, int res_y)
 {
 	if (ray->side == 0)
-		ray->perpwalldist = ((double)ray->map_x - ray->pos_x +
-				(1 - ray->step_x) / 2) / ray->raydir_x;
+		ray->perpwalldist = ((double)ray->map_x - ray->pos_x
+				+ (1 - ray->step_x) / 2) / ray->raydir_x;
 	else
-		ray->perpwalldist = ((double)ray->map_y - ray->pos_y +
-				(1 - ray->step_y) / 2) / ray->raydir_y;
+		ray->perpwalldist = ((double)ray->map_y - ray->pos_y
+				+ (1 - ray->step_y) / 2) / ray->raydir_y;
 	ray->lineh = (int)(res_y / ray->perpwalldist);
 	ray->drawstart = -ray->lineh / 2 + res_y / 2;
 	if (ray->drawstart < 0)
@@ -53,4 +53,3 @@ void	draw_col(t_data data)
 		i++;
 	}
 }
-

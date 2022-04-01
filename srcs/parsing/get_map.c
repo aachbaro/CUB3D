@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 16:59:36 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/03/31 19:15:39 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/01 15:17:12 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int	check_maptab(t_data *data)
 		while (data->info.map[j][i])
 		{
 			if (check_border(data->info.map, i, j) == -1
-				|| (data->info.map[j][i] == ' ' 
+				|| (data->info.map[j][i] == ' '
 				&& check_mspaces(data->info.map, i, j) == -1))
 				return (data->error = 11, -1);
 			if (get_pos("NESW", data->info.map[j][i]) != -1
@@ -116,5 +116,3 @@ int	check_maptab(t_data *data)
 	}
 	return (0);
 }
-
-

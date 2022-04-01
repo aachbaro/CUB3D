@@ -6,13 +6,13 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 17:27:59 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/03/31 16:24:59 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/01 15:18:43 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-int		get_pos(char *str, char c)
+int	get_pos(char *str, char c)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ int		get_pos(char *str, char c)
 	return (i);
 }
 
-int		is_map_line(char *line)
+int	is_map_line(char *line)
 {
 	int	i;
 
@@ -42,7 +42,7 @@ int		is_map_line(char *line)
 	return (1);
 }
 
-int			check_rgb(char **rgb)
+int	check_rgb(char **rgb)
 {
 	int	i;
 	int	j;
@@ -66,7 +66,7 @@ int			check_rgb(char **rgb)
 	return (1);
 }
 
-int			rgb_trad(int r, int g, int b)
+int	rgb_trad(int r, int g, int b)
 {
 	return (r * 65536 + g * 256 + b);
 }

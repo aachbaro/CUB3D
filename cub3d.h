@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 14:56:24 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/01 14:29:26 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/01 15:33:21 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@
 # define K_A 97
 # define K_D 100
 
-typedef struct	s_info
+typedef struct s_info
 {
+	unsigned int	w_map;
+	unsigned int	h_map;
 	int		win_w;
 	int		win_h;
 	int		floor_color;
 	int		ceil_color;
-	unsigned int	w_map;
-	unsigned int	h_map;
 	char		*n_tex;
 	char		*s_tex;
 	char		*e_tex;

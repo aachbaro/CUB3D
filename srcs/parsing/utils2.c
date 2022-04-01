@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:04:14 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/03/31 18:12:09 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/01 15:19:34 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	check_border(char **tab, int x, int y)
 	return (1);
 }
 
-int		check_mspaces(char **tab, int x, int y)
+int	check_mspaces(char **tab, int x, int y)
 {
 	int	l;
 	int	h;
@@ -59,4 +59,3 @@ int		check_mspaces(char **tab, int x, int y)
 		return (-1);
 	return (1);
 }
-

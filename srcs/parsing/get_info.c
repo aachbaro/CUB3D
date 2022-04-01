@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 17:29:56 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/03/31 19:04:45 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/01 15:19:09 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	check_info(t_data *data)
 		return (data->error = 9, -1);
 	if (data->info.floor_color == -1 || data->info.ceil_color == -1)
 		return (data->error = 9, -1);
-
 	if (!data->info.dir)
 		return (data->error = 13, -1);
 	if (!data->info.map)

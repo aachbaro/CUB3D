@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 17:43:03 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/03/31 19:10:01 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/01 15:17:54 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	send_with_id(t_data *data, char **split)
 {
 	if (ft_strlen(split[0]) == 2 && (!ft_strncmp(split[0], "NO", 2)
-		|| !ft_strncmp(split[0], "SO", 2)
-		|| !ft_strncmp(split[0], "EA", 2)
-		|| !ft_strncmp(split[0], "WE", 2)))
+			|| !ft_strncmp(split[0], "SO", 2)
+			|| !ft_strncmp(split[0], "EA", 2)
+			|| !ft_strncmp(split[0], "WE", 2)))
 		return (get_texture(data, split));
 	else if (ft_strlen(split[0]) == 1 && !ft_strncmp(split[0], "C", 1))
 		return (get_ceil(split, data));
@@ -127,4 +127,3 @@ int	get_ceil(char **line, t_data *data)
 	}
 	return (0);
 }
-

@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 12:14:31 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/01 14:27:58 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/01 15:22:08 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	raycasting(t_data *data)
 void	init_raycasting(t_data *data)
 {
 	data->ray.camera_x = 2 * data->ray.x / (double)data->info.win_w - 1;
-	data->ray.raydir_x = data->ray.dir_x + data->ray.plane_x *
-		data->ray.camera_x;
-	data->ray.raydir_y = data->ray.dir_y + data->ray.plane_y *
-		data->ray.camera_x;
+	data->ray.raydir_x = data->ray.dir_x + data->ray.plane_x
+		* data->ray.camera_x;
+	data->ray.raydir_y = data->ray.dir_y + data->ray.plane_y
+		* data->ray.camera_x;
 	data->ray.map_x = (int)data->ray.pos_x;
 	data->ray.map_y = (int)data->ray.pos_y;
 	data->ray.hit = 0;

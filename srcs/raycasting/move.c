@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 13:58:39 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/01 14:30:38 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/01 15:25:56 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	move_forward_back(t_ray *ray, char **map, t_data *data)
 			+ ray->dir_x * (data->move.speed * 2))] == '0')
 			ray->pos_x += ray->dir_x * data->move.speed;
 		if (map[(int)(ray->pos_y + ray->dir_y
-			* (data->move.speed * 2))][(int)(ray->pos_x)] == '0')
+				* (data->move.speed
+					* 2))][(int)(ray->pos_x)] == '0')
 			ray->pos_y += ray->dir_y * data->move.speed;
 	}
 	if (data->move.back == 1)
@@ -29,7 +30,8 @@ void	move_forward_back(t_ray *ray, char **map, t_data *data)
 			- ray->dir_x * (data->move.speed * 2))] == '0')
 			ray->pos_x -= ray->dir_x * data->move.speed;
 		if (map[(int)(ray->pos_y - (ray->dir_y
-			* data->move.speed * 2))][(int)(ray->pos_x)] == '0')
+					* data->move.speed
+					* 2))][(int)(ray->pos_x)] == '0')
 			ray->pos_y -= ray->dir_y * data->move.speed;
 	}
 }
@@ -42,7 +44,7 @@ void	move_left_right(t_ray *ray, char **map, t_data *data)
 			+ ray->dir_y * (data->move.speed * 2))] == '0')
 			ray->pos_x += ray->dir_y * data->move.speed;
 		if (map[(int)(ray->pos_y - ray->dir_x
-			* (data->move.speed * 2))][(int)ray->pos_x] == '0')
+				* (data->move.speed * 2))][(int)ray->pos_x] == '0')
 			ray->pos_y -= ray->dir_x * data->move.speed;
 	}
 	if (data->move.left == 1)
@@ -50,16 +52,16 @@ void	move_left_right(t_ray *ray, char **map, t_data *data)
 		if (map[(int)ray->pos_y][(int)(ray->pos_x
 			- ray->dir_y * (data->move.speed * 2))] == '0')
 			ray->pos_x -= ray->dir_y * data->move.speed;
-		if (map[(int)(ray->pos_y + ray->dir_x *
-			(data->move.speed * 2))][(int)ray->pos_x] == '0')
+		if (map[(int)(ray->pos_y + ray->dir_x
+				* (data->move.speed * 2))][(int)ray->pos_x] == '0')
 			ray->pos_y += ray->dir_x * data->move.speed;
 	}
 }
 
 void	rotate_right_left(t_data *data, t_ray *ray)
 {
-	double oldplane_x;
-	double olddir_x;
+	double	oldplane_x;
+	double	olddir_x;
 
 	oldplane_x = ray->plane_x;
 	olddir_x = ray->dir_x;
@@ -79,7 +81,7 @@ void	rotate_right_left(t_data *data, t_ray *ray)
 
 void	rotate_left(t_data *data, t_ray *ray, double olddir_x)
 {
-	double oldplanex;
+	double	oldplanex;
 
 	if (data->move.rotate_left == 1)
 	{
