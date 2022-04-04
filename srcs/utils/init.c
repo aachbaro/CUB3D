@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:21:05 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/01 14:34:29 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/04 16:20:28 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	init_all(t_data *data)
 {
+	int	i;
+
 	data->m_ptr = NULL;
 	data->m_win = NULL;
 	data->info.win_w = 1920 * 4 / 5;
@@ -33,6 +35,9 @@ void	init_all(t_data *data)
 	data->info.dir = 0;
 	data->fd = -2;
 	data->file = NULL;
+	i = 0;
+	while (i < 4)
+		data->tex[i++].p_img = NULL;
 }
 
 int	open_file(int ac, char **av, t_data *data)

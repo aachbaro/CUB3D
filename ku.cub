@@ -1,10 +1,9 @@
 C 213,132,12
 F 23,234,23
-NO blablanourth
-SO blablasouth
-EA blablaeast
-WE blablawest
-
+NO textures/eagle.xpm
+SO textures/greystone.xpm
+EA textures/purplestone.xpm
+WE textures/red.xpm
 111111111111111111111
 100000000000000000001
 11111110000N000000001

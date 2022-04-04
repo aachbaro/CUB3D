@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 14:56:24 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/01 15:33:21 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/04 16:04:42 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,19 @@ typedef struct		s_img
   int				bpp;
   int				line_len;
   int				endian;
+  int				width;
+  int				height;
 }					t_img;
+
+typedef struct		s_texture
+{
+	int		tex_dir;
+	double		wall_x;
+	int		x_tex;
+	int		y_tex;
+	double		step;
+	double		texpos;
+}			t_texture;
 
 typedef struct		s_ray
 {
@@ -105,6 +117,8 @@ typedef struct		s_data
 	t_move			move;
 	int			fd;
 	char			*file;
+	t_img			tex[4];
+	t_texture		t;
 	int			error;
 }				t_data;
 
@@ -144,7 +158,7 @@ void		init_delta(t_ray *ray);
 void		init_sidedist(t_ray *ray);
 void		inc_sidedist(t_ray *ray, char **map);
 void		get_perpwalldist(t_ray *ray, int res_y);
-void		draw_col(t_data data);
+void		draw_col(t_data *data);
 int		key_press(int keysym, t_data *data);
 int		key_release(int keysym, t_data *data);
 void		move_forward_back(t_ray *ray, char **map, t_data *data);
@@ -152,7 +166,9 @@ void		move_left_right(t_ray *ray, char **map, t_data *data);
 void		rotate_right_left(t_data *data, t_ray *ray);
 void		rotate_left(t_data *data, t_ray *ray, double olddir_x);
 void		img_pix_put(t_img *img, int x, int y, int color);
-
-
+int		load_texture(t_data *data);
+void		clean_exit(t_data *data, int err);
+void		init_texture(t_data *data);
+void		draw_texture(t_data *data, int x, int y);
 
 #endif

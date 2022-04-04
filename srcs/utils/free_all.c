@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:58:08 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/01 15:30:12 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/04 16:36:50 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	free_all(t_data *data)
 		del_strtab(data->info.map);
 	if (data->m_ptr)
 		free(data->m_ptr);
-	if (data->file)
-		free(data->file);
+	//if (data->file)
+	//	free(data->file);
 	close(data->fd);
 }
 
@@ -81,4 +81,17 @@ void	ft_error2(t_data *data)
 		ft_putstr_fd("Error\nInitial position not found\n", 1);
 	else if (data->error == 14)
 		ft_putstr_fd("Error\nMap not found\n", 1);
+	else if (data->error == 15)
+		ft_putstr_fd("Error\nFailed initialising minilibx\n", 1);
+	else if (data->error == 16)
+		ft_putstr_fd("Error\nFailed loading textures\n", 1);
+
+}
+
+void	clean_exit(t_data *data, int err)
+{
+	data->error = err;
+	ft_error(data);
+	free_all(data);
+	exit(0);
 }

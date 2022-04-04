@@ -15,6 +15,7 @@ SRC = srcs/main.c \
       srcs/raycasting/raycasting2.c \
       srcs/raycasting/key.c \
       srcs/raycasting/move.c \
+      srcs/raycasting/textures.c \
 
 
 

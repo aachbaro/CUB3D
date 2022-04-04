@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 12:14:31 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/01 15:22:08 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/04 16:05:04 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	raycasting(t_data *data)
 		init_sidedist(&data->ray);
 		inc_sidedist(&data->ray, data->info.map);
 		get_perpwalldist(&data->ray, data->info.win_h);
-		draw_col(*data);
+		draw_col(data);
 		data->ray.x++;
 	}
 	move_forward_back(&data->ray, data->info.map, data);

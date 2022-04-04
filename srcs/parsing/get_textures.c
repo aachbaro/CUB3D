@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 17:43:03 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/01 15:17:54 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/04 16:49:32 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	get_map_info(t_data *data, char *line)
 
 	if (*line)
 	{
+		printf("%s\n", line);
 		split = ft_split(line, ' ');
 		if (!split)
 			return (data->error = 4, -1);
