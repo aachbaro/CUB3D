@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 14:47:29 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/04 16:18:55 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/05 17:16:06 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,16 @@ void	init_texture(t_data *data)
 	if (data->ray.side == 1 && data->ray.raydir_y >= 0)
 		data->t.tex_dir = 3;
 	if (data->ray.side == 0)
-		data->t.wall_x = data->ray.pos_y + data->ray.perpwalldist \
+		data->t.wall_x = data->ray.pos_y + data->ray.perpwalldist
 						* data->ray.raydir_y;
 	else
-		data->t.wall_x = data->ray.pos_x + data->ray.perpwalldist \
+		data->t.wall_x = data->ray.pos_x + data->ray.perpwalldist
 						* data->ray.raydir_x;
-	data->t.wall_x -= floor((data->t.wall_x));
+	data->t.wall_x -= floor(data->t.wall_x);
 }
 
 void	draw_texture(t_data *data, int x, int y)
 {
-	y = data->ray.drawstart - 1;
 	init_texture(data);
 	data->t.step = 1.0 * data->tex[0].height / data->ray.lineh;
 	data->t.x_tex = (int)(data->t.wall_x
@@ -94,9 +93,8 @@ void	draw_texture(t_data *data, int x, int y)
 			(data->tex[data->t.tex_dir].height - 1);
 		data->t.texpos += data->t.step;
 		if (y < data->info.win_h && x < data->info.win_w)
-			data->img.addr[y * data->img.line_len / 4 + x] =
-				data->tex[data->t.tex_dir].addr[data->t.y_tex *
-					data->tex[data->t.tex_dir].line_len /
-					4 + data->t.x_tex];
+			img_pix_put(&data->img, x, y,
+					data->tex[data->t.tex_dir].addr[data->t.y_tex
+					* data->tex[data->t.tex_dir].line_len + data->t.x_tex * (data->tex[data->t.tex_dir].bpp / 8)]);
 	}
 }
