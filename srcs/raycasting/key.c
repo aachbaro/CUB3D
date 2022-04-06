@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 13:54:04 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/01 15:20:18 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/06 16:17:15 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ int	key_release(int keysym, t_data *data)
 	else if (keysym == K_RIGHT)
 		data->move.rotate_right = 0;
 	else if (keysym == K_ESCAPE)
-	{
-		mlx_destroy_image(data->m_ptr, data->img.p_img);
-		mlx_destroy_window(data->m_ptr, data->m_win);
-		mlx_destroy_display(data->m_ptr);
-		free_all(data);
-		exit(0);
-	}
+		clean_exit(data, 0);
+	return (0);
+}
+
+int	destroy_win(t_data *data)
+{
+	clean_exit(data, 0);
 	return (0);
 }

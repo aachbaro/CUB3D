@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 13:43:53 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/04 16:24:27 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:50:43 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,16 @@ void	draw_col(t_data *data)
 	i = 0;
 	while (i < data->ray.drawstart)
 	{
-		img_pix_put(&data->img, data->ray.x, i, data->info.ceil_color);
+		data->img.addr[i * data->img.line_len
+			/ 4 + data->ray.x] = data->info.ceil_color;
 		i++;
 	}
 	draw_texture(data, data->ray.x, i);
 	i = data->ray.drawend;
 	while (i < data->info.win_h)
 	{
-		img_pix_put(&data->img, data->ray.x, i, data->info.floor_color);
+		data->img.addr[i * data->img.line_len
+			/ 4 + data->ray.x] = data->info.floor_color;
 		i++;
 	}
 }

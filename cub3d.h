@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 14:56:24 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/04 16:04:42 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/06 16:18:07 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "libft/libft.h"
 # include "mlx/mlx.h"
+# include <X11/keysym.h>
+# include <X11/X.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
@@ -34,8 +36,8 @@ typedef struct s_info
 	unsigned int	h_map;
 	int		win_w;
 	int		win_h;
-	int		floor_color;
-	int		ceil_color;
+	int	floor_color;
+	int	ceil_color;
 	char		*n_tex;
 	char		*s_tex;
 	char		*e_tex;
@@ -49,7 +51,7 @@ typedef struct s_info
 typedef struct		s_img
 {
   void				*p_img;
-  char				*addr;
+  int				*addr;
   int				bpp;
   int				line_len;
   int				endian;
@@ -165,10 +167,11 @@ void		move_forward_back(t_ray *ray, char **map, t_data *data);
 void		move_left_right(t_ray *ray, char **map, t_data *data);
 void		rotate_right_left(t_data *data, t_ray *ray);
 void		rotate_left(t_data *data, t_ray *ray, double olddir_x);
-void		img_pix_put(t_img *img, int x, int y, int color);
+void		img_pix_put(t_img *img, int x, int y, unsigned int color);
 int		load_texture(t_data *data);
 void		clean_exit(t_data *data, int err);
 void		init_texture(t_data *data);
 void		draw_texture(t_data *data, int x, int y);
+int		destroy_win(t_data *data);
 
 #endif
