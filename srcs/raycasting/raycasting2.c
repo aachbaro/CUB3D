@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 13:43:53 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/06 15:50:43 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/06 16:40:46 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ void	draw_col(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < data->ray.drawstart)
+	while (i < data->ray.drawstart - 1)
 	{
 		data->img.addr[i * data->img.line_len
 			/ 4 + data->ray.x] = data->info.ceil_color;
 		i++;
 	}
-	draw_texture(data, data->ray.x, i);
-	i = data->ray.drawend;
+	draw_texture(data, data->ray.x, i - 1);
+	i = data->ray.drawend + 1;
 	while (i < data->info.win_h)
 	{
 		data->img.addr[i * data->img.line_len

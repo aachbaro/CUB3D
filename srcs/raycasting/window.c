@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 11:36:25 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/06 16:19:44 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/06 16:35:02 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	render(t_data *data)
 {
 	raycasting(data);
+	render_minimap(data);
 	mlx_put_image_to_window(data->m_ptr, data->m_win,
 		data->img.p_img, 0, 0);
 	return (0);

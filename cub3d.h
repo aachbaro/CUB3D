@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 14:56:24 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/06 16:18:07 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/06 16:33:07 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@
 # define K_S 115
 # define K_A 97
 # define K_D 100
+
+typedef struct s_pos
+{
+	int	x;
+	int	y;
+}		t_pos;
 
 typedef struct s_info
 {
@@ -173,5 +179,6 @@ void		clean_exit(t_data *data, int err);
 void		init_texture(t_data *data);
 void		draw_texture(t_data *data, int x, int y);
 int		destroy_win(t_data *data);
+void		render_minimap(t_data *data);
 
 #endif
