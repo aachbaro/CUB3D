@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:58:08 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/06 16:12:12 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/07 14:56:58 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,11 @@ void	clean_exit(t_data *data, int err)
 {
 	int	i;
 
-	i  = 0;
+	i = 0;
 	data->error = err;
 	ft_error(data);
 	mlx_destroy_image(data->m_ptr, data->img.p_img);
-	while (i < 4)	
+	while (i < 4)
 	{
 		if (data->tex[i].p_img)
 			mlx_destroy_image(data->m_ptr, data->tex[i].p_img);

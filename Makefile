@@ -25,7 +25,7 @@ LIBFT = -L./libft -lft
 MLX = -L./mlx -lmlx -lXext -lX11 -lm
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize=address
 RM = rm -rf
 INC = -Icub3d.h
 OBJ = $(SRC:.c=.o)

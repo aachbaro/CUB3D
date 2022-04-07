@@ -6,13 +6,13 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 16:25:00 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/06 16:36:27 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/07 14:56:28 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-int		print_square(t_img *img, int squa_size, t_pos coord, int color)
+int	print_square(t_img *img, int squa_size, t_pos coord, int color)
 {
 	int	i;
 	int	j;
@@ -37,7 +37,7 @@ int		print_square(t_img *img, int squa_size, t_pos coord, int color)
 	return (squa_size);
 }
 
-int		color_set(char c)
+int	color_set(char c)
 {
 	if (c == '1')
 		return (rgb_trad(0, 0, 0));
@@ -51,8 +51,8 @@ void	render_minimap(t_data *data)
 {
 	t_pos	coord;
 	t_pos	player;
-	int	squa_size;
-	int	color;
+	int		squa_size;
+	int		color;
 
 	squa_size = 10;
 	player.x = (int)data->ray.pos_x;

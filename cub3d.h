@@ -6,7 +6,7 @@
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 14:56:24 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/04/06 16:33:07 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/04/07 14:54:34 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,42 +40,42 @@ typedef struct s_info
 {
 	unsigned int	w_map;
 	unsigned int	h_map;
-	int		win_w;
-	int		win_h;
-	int	floor_color;
-	int	ceil_color;
-	char		*n_tex;
-	char		*s_tex;
-	char		*e_tex;
-	char		*w_tex;
-	char		**map;
-	int		pos_x;
-	int		pos_y;
-	char		dir;
+	int				win_w;
+	int				win_h;
+	int				floor_color;
+	int				ceil_color;
+	char			*n_tex;
+	char			*s_tex;
+	char			*e_tex;
+	char			*w_tex;
+	char			**map;
+	int				pos_x;
+	int				pos_y;
+	char			dir;
 }			t_info;
 
-typedef struct		s_img
+typedef struct s_img
 {
-  void				*p_img;
-  int				*addr;
-  int				bpp;
-  int				line_len;
-  int				endian;
-  int				width;
-  int				height;
+	void			*p_img;
+	int				*addr;
+	int				bpp;
+	int				line_len;
+	int				endian;
+	int				width;
+	int				height;
 }					t_img;
 
-typedef struct		s_texture
+typedef struct s_texture
 {
 	int		tex_dir;
-	double		wall_x;
+	double	wall_x;
 	int		x_tex;
 	int		y_tex;
-	double		step;
-	double		texpos;
+	double	step;
+	double	texpos;
 }			t_texture;
 
-typedef struct		s_ray
+typedef struct s_ray
 {
 	double			pos_x;
 	double			pos_y;
@@ -103,38 +103,38 @@ typedef struct		s_ray
 	int				x;
 }					t_ray;
 
-typedef struct		s_move
+typedef struct s_move
 {
-	int				forward;
-	int				back;
-	int				left;
-	int				right;
-	int				rotate_left;
-	int				rotate_right;
-	double			speed;
-	double			rotation;
+	int			forward;
+	int			back;
+	int			left;
+	int			right;
+	int			rotate_left;
+	int			rotate_right;
+	double		speed;
+	double		rotation;
 }				t_move;
 
-typedef struct		s_data
+typedef struct s_data
 {
-	void			*m_ptr;
-	void			*m_win;
-	t_img			img;
-	t_info			info;
-	t_ray			ray;
-	t_move			move;
+	void		*m_ptr;
+	void		*m_win;
+	t_img		img;
+	t_info		info;
+	t_ray		ray;
+	t_move		move;
 	int			fd;
-	char			*file;
-	t_img			tex[4];
-	t_texture		t;
+	char		*file;
+	t_img		tex[4];
+	t_texture	t;
 	int			error;
 }				t_data;
 
-void		init_all(t_data *data);
+void	init_all(t_data *data);
 int		open_file(int ac, char **av, t_data *data);
-void		ft_error(t_data *data);
-void		ft_error2(t_data *data);
-void		free_all(t_data *data);
+void	ft_error(t_data *data);
+void	ft_error2(t_data *data);
+void	free_all(t_data *data);
 int		is_map_line(char *line);
 int		del_strtab(char **tab);
 int		get_map_info(t_data *data, char *line);
@@ -151,34 +151,34 @@ int		check_comma(char *str);
 int		get_map(char **line, t_data *data);
 int		get_map_size(char *line, t_data *data);
 int		fill_mapline(char *line, t_data *data, int y);
-int 		check_maptab(t_data *data);
+int		check_maptab(t_data *data);
 int		set_pos(t_data *data, int y, int x);
 int		check_border(char **tab, int x, int y);
 int		check_mspaces(char **tab, int x, int y);
 int		get_pos(char *str, char c);
 int		window(t_data *data);
-void		raycast_init(t_data *data);
-void		init_dirplane(t_data *data);
-void		init_move(t_data *data);
-void		raycasting(t_data *data);
-void		init_raycasting(t_data *data);
-void		init_delta(t_ray *ray);
-void		init_sidedist(t_ray *ray);
-void		inc_sidedist(t_ray *ray, char **map);
-void		get_perpwalldist(t_ray *ray, int res_y);
-void		draw_col(t_data *data);
+void	raycast_init(t_data *data);
+void	init_dirplane(t_data *data);
+void	init_move(t_data *data);
+void	raycasting(t_data *data);
+void	init_raycasting(t_data *data);
+void	init_delta(t_ray *ray);
+void	init_sidedist(t_ray *ray);
+void	inc_sidedist(t_ray *ray, char **map);
+void	get_perpwalldist(t_ray *ray, int res_y);
+void	draw_col(t_data *data);
 int		key_press(int keysym, t_data *data);
 int		key_release(int keysym, t_data *data);
-void		move_forward_back(t_ray *ray, char **map, t_data *data);
-void		move_left_right(t_ray *ray, char **map, t_data *data);
-void		rotate_right_left(t_data *data, t_ray *ray);
-void		rotate_left(t_data *data, t_ray *ray, double olddir_x);
-void		img_pix_put(t_img *img, int x, int y, unsigned int color);
+void	move_forward_back(t_ray *ray, char **map, t_data *data);
+void	move_left_right(t_ray *ray, char **map, t_data *data);
+void	rotate_right_left(t_data *data, t_ray *ray);
+void	rotate_left(t_data *data, t_ray *ray, double olddir_x);
+void	img_pix_put(t_img *img, int x, int y, unsigned int color);
 int		load_texture(t_data *data);
-void		clean_exit(t_data *data, int err);
-void		init_texture(t_data *data);
-void		draw_texture(t_data *data, int x, int y);
+void	clean_exit(t_data *data, int err);
+void	init_texture(t_data *data);
+void	draw_texture(t_data *data, int x, int y);
 int		destroy_win(t_data *data);
-void		render_minimap(t_data *data);
+void	render_minimap(t_data *data);
 
 #endif
